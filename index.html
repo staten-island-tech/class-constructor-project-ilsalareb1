@@ -1,6 +1,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
@@ -13,18 +15,26 @@
     </div>
         
         <div class="user-input">
-            <form id="movies-form">
+            <form id="movie-form">
                <div class="movie-form-input">
                     <label for = "title">Title</label>
                     <input type="text" id="title" class="text-box">
                </div>
                <div class="movie-form-input">
                     <label for = "director">Director</label>
-                    <input type="text" id="powers" class="text-box">
+                    <input type="text" id="director" class="text-box">
+               </div>
+               <div class="movie-form-input">
+                <label for = "leadActor-1"> leadActor-1</label>
+                <input type="text" id="leadActor1" class="text-box">
+               </div>
+               <div class="movie-form-input">
+                <label for = "leadActor2"> leadActor-2 </label>
+                <input type="text" id="leadActor2" class="text-box">
                </div>
                <div class="movie-form-input">
                     <label for = "yearReleased">Year Released</label>
-                    <input type="text" id="full-name" class="text-box">
+                    <input type="text" id="yearReleased" class="text-box">
                </div>
                <div class="movie-form-input">
                     <label for = "image">Enter URL for image</label>
@@ -36,12 +46,10 @@
         
            </form>
         </div>
-
+        
         <div class="display">
-            
+
         </div>
-        
-        
     
 </body>
 </html>
