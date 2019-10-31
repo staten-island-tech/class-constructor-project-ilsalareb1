@@ -20,7 +20,7 @@ class UI {
         if (movie.title == false || movie.director == false || movie.leadActor1 == false || movie.leadActor2 == false || movie.yearReleased == false || movie.url == false){
             alert('Please input all values');
         }else {
-        const display= document.querySelector('.display');
+        const display = document.querySelector('.display');
         
         let html='<div class="display-movie"><div class="display-title">%title%</div><div class="display-director">%director%</div><div class= "display-leadActor-1"> %leadActor-1%</div><div class="display-leadActor2"> %leadActor-2% </label></div><div class="display-yearReleased">%yearReleased%</div><div class="display-image"><img src="%url%"></div><div class="remove-movie"><p class="remove-movie">Remove Movie &#10006; </p></div></div>';
 
@@ -30,8 +30,8 @@ class UI {
         newHtml = html.replace('%leadActor-2%', movie.leadActor2);
         newHtml = html.replace('%yearReleased%', movie.calculateAge(yearReleased));
         newHtml = html.replace('%url%', movie.url);
-        display.insertAdjacentHTML('beforeend', newHtml);
-        e.preventDefault();
+        document.querySelector('.display').insertAdjacentHTML('beforeend', newHtml);
+        
         }
     }
 
@@ -41,9 +41,9 @@ class UI {
     }
 
     //remove object
-    removeMovie(e){
-        if (e.parentElement.classList.contains('display-button')){
-            e.parentElement.parentElement.remove();
+    removeMovie(target){
+        if (target.parentElement.classList.contains('remove-movie')){
+            target.parentElement.remove();
         }
     }
 }
@@ -55,25 +55,22 @@ class UI {
 document.getElementById('movie-form').addEventListener('submit', function(e){
     //values
     
-    const userTitle = document.querySelector('#title');
-    const userDirector = document.querySelector('#director');
-    const userleadActor1 = document.querySelector('#leadActor1');
-    const userleadActor2 = document.querySelector('#leadActor2');
-    const userYearReleased = document.querySelector('#yearReleased');
-    const userMoviePoster = document.querySelector('#image');
+    const userTitle = document.getElementById('title').value;
+    const userDirector = document.getElementById('director').value;
+    const userleadActor1 = document.getElementById('leadActor1').value;
+    const userleadActor2 = document.getElementById('leadActor1').value;
+    const userYearReleased = document.getElementById('yearReleased').value;
+    const userMoviePoster = document.getElementById('image').value;
 
     //instantiates new class
-    const movie = new Movie(userTitle.value, userDirector.value, userleadActor1.value, userleadActor2.value, userYearReleased.value , userMoviePoster.value);
-    console.log(Movie);
+    const movie = new Movie(userTitle, userDirector, userleadActor1, userleadActor2, userYearReleased, userMoviePoster);
 
     const ui = new UI();
-    console.log(UI);
+    console.log(ui);
     
     ui.displayMovie(movie);
 
     ui.clearValues();
-
-    ui.removeMovie(e);
 
     e.preventDefault(); 
 
